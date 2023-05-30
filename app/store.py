@@ -24,3 +24,12 @@ class Store(BaseModel):
     def get_vinyle(self):
         return self.vinyles
         
+    def add_dvds(self, m):
+        self.dvds.append(m)
+        
+    def remove_dvds(self, title):
+        if title in self.dvds:
+            self.dvds.remove(title)
+    
+    def get_dvds(self):
+        return self.dvds
