@@ -1,12 +1,12 @@
 from pydantic import BaseModel, validator
-from music import music
+from music import Music
 from typing import List
 from constants import MUSIC_TYPES
 
 class Store(BaseModel):
     music_type: str
-    vinyles: List[music] = []
-    dvds: List[music] = []
+    vinyles: List[Music] = []
+    dvds: List[Music] = []
     
     @validator("music_type")
     def music_type_is_valid(cls, m):
