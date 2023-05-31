@@ -4,7 +4,7 @@ from constants import MUSIC_TYPES
 
 class Music(BaseModel):
     titre: str
-    artiste: str
+    artist: str
     immat: str
     
     @validator('immat')
@@ -20,7 +20,7 @@ class Music(BaseModel):
             raise ValueError("l'immat dois commencer par les initial de l'artist")
         
         music_length = v[2:5]
-        if not 60 <= music_length <= 300:
+        if not 60 <= int(music_length) <= 300:
             raise ValueError("La durée de la musique dois etre compris entre 60 et 300")
         
         
@@ -29,7 +29,7 @@ class Music(BaseModel):
             raise ValueError("l'immat doit contenir un type de musique valide")
         
         id_immat = v[8:]
-        if (not id_immat.isdigit()) or 6 in id_immat:
+        if (not id_immat.isdigit()) or "6" in id_immat:
             raise ValueError("l'immat dois etre un id et ne pas contenir de 6")
         
         
