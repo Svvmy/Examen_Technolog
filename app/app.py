@@ -15,7 +15,7 @@ from utils import (
     extract_id_from_immat,
 )
 
-client = MongoClient('MONGO_HOST')
+client = MongoClient(MONGO_HOST)
 db = client[DB_NAME]
 app = FastAPI()
 

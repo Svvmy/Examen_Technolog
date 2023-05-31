@@ -7,7 +7,7 @@ MUSIC_COLLECTION_NAME = "music"
 STORE_COLLECTION_NAME = "store"
 
 client = MongoClient(MONGO_HOST)
-db = client(DB_NAME)
+db = client[DB_NAME]
 
 store = {"_id": ObjectId(), "music_type": "POP"}
 
