@@ -17,9 +17,15 @@ client = MongoClient('MONGO_HOST')
 db = client[DB_NAME]
 app = FastAPI()
 
+#Music endpoints
 @app.get("/musics")
 def get_musics():
     musics = db[MUSIC_COLLECTION_NAME].find()
     
     return musics
     
+@app.post("/musics")
+def create_musics(music: Music):
+    inserted_music = db[MUSIC_COLLECTION_NAME].insert_one(dict(music))
+    
+    return {"_id": str(inserted_music.inserted_id)} | dict(music)
