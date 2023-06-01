@@ -23,7 +23,7 @@ app = FastAPI()
 @app.get("/musics")
 def get_musics():
     musics = db[MUSIC_COLLECTION_NAME].find()
-    
+    print(musics)
     return [parse_music_from_db(music) for music in musics]
     
 @app.post("/musics")

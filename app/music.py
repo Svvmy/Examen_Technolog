@@ -3,7 +3,7 @@ from utils import extract_initials_artist
 from constants import MUSIC_TYPES
 
 class Music(BaseModel):
-    titre: str
+    title: str
     artist: str
     immat: str
     
