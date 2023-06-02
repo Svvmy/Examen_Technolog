@@ -1,0 +1,16 @@
+version: "3"
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+  seeder:
+    image: svvmy/store_music_seeder:1.0
+    depends_on:
+      - mongodb
+  app:
+    image: svvmy/store_music_app:1.0
+    ports:
+      - 4850:4850
+    depends_on:
+      - mongodb
